@@ -117,19 +117,29 @@
     </style>
 </head>
 <body>
-   <p>Play karo ji 🎧</p>
 
-<button onclick="playSong()">▶ Play Song</button>
+    <center>
+        <p>Play karo ji 🎶</p>
 
-<audio id="song">
-    <source src="khogaye.mp3" type="audio/mpeg">
-</audio>
+        <button onclick="playSong()">▶ Play</button>
+        <button onclick="pauseSong()">⏸ Pause</button>
 
-<script>
-    function playSong() {
-        document.getElementById("song").play();
-    }
-</script>
+        <br><br>
+
+        <audio id="song">
+            <source src="khogaye.mp3" type="audio/mpeg">
+        </audio>
+    </center>
+
+    <script>
+        function playSong() {
+            document.getElementById("song").play();
+        }
+
+        function pauseSong() {
+            document.getElementById("song").pause();
+        }
+    </script>
 
 <div id="background-container"></div>
 
