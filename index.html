@@ -7,17 +7,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Playfair+Display:ital,wght@0,400;1,400&family=Lora:ital@0;1&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Soft Romantic Gradient Variables */
-            --bg-start: #fff0f5; /* Lavender Blush */
-            --bg-end: #e6e6fa;   /* Lavender */
+            --bg-start: #fff0f5; 
+            --bg-end: #e6e6fa;   
             --text-color: #4a4a4a;
             --accent-pink: #d48c9d;
             --polaroid-shadow: rgba(0, 0, 0, 0.15);
         }
 
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
         body {
             background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
@@ -28,16 +25,11 @@
             line-height: 1.8;
             overflow-x: hidden;
             min-height: 100vh;
-            position: relative;
         }
 
-        /* Container for floating background elements */
         #background-container {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
             pointer-events: none;
             overflow: hidden;
@@ -48,22 +40,12 @@
             bottom: -50px;
             animation: floatUp linear forwards;
             opacity: 0;
-            font-size: 24px;
-            filter: blur(0.5px);
         }
 
         @keyframes floatUp {
-            0% {
-                transform: translateY(0) rotate(0deg) translateX(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.8;
-            }
-            100% {
-                transform: translateY(-110vh) rotate(360deg) translateX(20px);
-                opacity: 0;
-            }
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.8; }
+            100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
         }
 
         .container {
@@ -71,22 +53,14 @@
             margin: 0 auto;
             padding: 80px 25px;
             text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        header {
-            margin-bottom: 80px;
         }
 
         header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.8rem;
-            font-weight: 400;
+            font-size: 3.5rem;
             font-style: italic;
             margin-bottom: 10px;
             color: #2c2c2c;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
         }
 
         .subtitle {
@@ -94,37 +68,25 @@
             letter-spacing: 5px;
             text-transform: uppercase;
             color: #888;
-            margin-bottom: 20px;
         }
 
         .letter-content {
             text-align: left;
             margin: 40px 0;
             font-size: 1.2rem;
-            color: #4a4a4a;
             background: rgba(255, 255, 255, 0.6);
             padding: 30px;
             border-radius: 4px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
             backdrop-filter: blur(2px);
-            border: 1px solid rgba(255,255,255,0.8);
         }
 
-        /* Polaroid Aesthetic */
         .media-wrapper {
             background: #fff;
             padding: 15px 15px 60px 15px;
             box-shadow: 0 10px 40px var(--polaroid-shadow);
             margin: 80px auto;
             max-width: 90%;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
             position: relative;
-        }
-
-        .media-wrapper:hover {
-            transform: scale(1.02) rotate(0deg) !important;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
-            z-index: 10;
         }
 
         .rotate-left { transform: rotate(-2deg); }
@@ -134,7 +96,6 @@
             width: 100%;
             display: block;
             height: auto;
-            filter: contrast(1.05) brightness(1.05); /* Slight filter for nostalgia */
         }
 
         .caption {
@@ -142,98 +103,81 @@
             font-size: 1.8rem;
             margin-top: 25px;
             color: #555;
-            text-align: center;
             position: absolute;
             bottom: 10px;
             width: 100%;
             left: 0;
         }
 
-        .heart-divider {
-            font-size: 2rem;
-            color: var(--accent-pink);
-            margin: 60px 0;
-            animation: beat 2s infinite ease-in-out;
-        }
+        footer { margin-top: 100px; padding-bottom: 80px; }
+        .signature { font-family: 'Dancing Script', cursive; font-size: 3rem; }
 
-        @keyframes beat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
-
-        footer {
-            margin-top: 100px;
-            padding-bottom: 80px;
-        }
-
-        .signature {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3rem;
-            color: #2c2c2c;
-            margin-top: 10px;
-        }
-
-        /* Reveal Animation */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 1s ease-out;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @media (max-width: 600px) {
-            header h1 { font-size: 2.8rem; }
-            .letter-content { font-size: 1.1rem; padding: 20px; }
-            .media-wrapper { padding-bottom: 50px; }
-            .caption { font-size: 1.5rem; }
-        }
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 1s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body>
 
-<!-- This container holds the floating flowers and hearts -->
 <div id="background-container"></div>
 
-<div class="media-wrapper rotate-left reveal">
-        <img src="beach.jpg" alt="Beach Memory">
-        <p class="caption">The sun feels warmer when you're there.</p>
+<div class="container">
+    <header class="reveal">
+        <p class="subtitle">A Beginning of Something New</p>
+        <h1>To My Everything</h1>
+    </header>
+
+    <section class="letter-content reveal">
+        <p>As we step into another year together, I wanted to take a moment to look back at everything we’ve shared. There are so many moments that I carry with me—small, quiet fragments of time that mean the world to me. Looking at our photos, I’m reminded that the best parts of my day are always the ones where you are right by my side.</p>
+    </section>
+
+    <div class="media-wrapper rotate-left reveal">
+        <img src="first%20photo.jpg" alt="First Photo">
+        <p class="caption">Where it all began.</p>
     </div>
 
     <section class="letter-content reveal">
-        <p>Thank you for being the person who knows me better than anyone else. Thank you for the patience you show me, the way you listen, and the way you challenge me to be a better version of myself every single day. Life isn’t always easy, but knowing that I have you to come home to, and you to share my dreams with, makes every challenge feel small. I honestly don’t know what I did to deserve someone as kind and beautiful as you, but I promise to spend this year trying to be everything you deserve in return.</p>
+        <p>Thank you for being the person who knows me better than anyone else. Thank you for the patience you show me, the way you listen, and the way you challenge me to be a better version of myself every single day. Life isn’t always easy, but knowing that I have you makes every challenge feel small.</p>
     </section>
 
     <div class="media-wrapper rotate-right reveal">
-        <video playsinline controls autoplay muted loop style="width:100%; height:auto;">
+        <img src="beach.jpg" alt="Beach">
+        <p class="caption">The sun feels warmer with you.</p>
+    </div>
+
+    <div class="media-wrapper rotate-left reveal">
+        <video playsinline controls autoplay muted loop>
             <source src="rain%20with%20you.mov" type="video/quicktime">
             <source src="rain%20with%20you.mov" type="video/mp4">
-            Your browser does not support the video tag.
         </video>
         <p class="caption">Watching the rain with you...</p>
     </div>
 
-    <div class="heart-divider">❤</div>
-
     <section class="letter-content reveal">
-        <p>I find myself scrolling through our videos just to hear your laugh or see that specific way you look at me when you're happy. It’s in those moments—whether we’re out exploring the city or just sitting in a cafe while it rains outside—that I realize how much you truly mean to me. You aren't just a part of my life; you are the heart of it. You’ve taught me what it means to be truly seen and loved, and for that, I am eternally grateful.</p>
-    </section>
-
-    <div class="media-wrapper rotate-left reveal">
-        <img src="fav%20view.jpg" alt="Favorite View">
-        <p class="caption">My favorite view in the world.</p>
-    </div>
-
-    <section class="letter-content reveal">
-        <p>So, here’s to us. Here’s to the 365 days we just finished and the hundreds more waiting for us. I want to travel more with you, laugh more with you, and even just do the mundane things like grocery shopping or lazy Sundays with you. Thank you for choosing me, day after day. I love you more than words on a screen could ever capture, but I hope this little surprise reminds you just how special you are to me. Happy New Year, my love.</p>
+        <p>You aren't just a part of my life; you are the heart of it. You’ve taught me what it means to be truly seen and loved, and for that, I am eternally grateful.</p>
     </section>
 
     <div class="media-wrapper rotate-right reveal">
-        <img src="Selfie%20with%20head%20on%20shoulder.jpg" alt="Together">
+        <img src="fav%20view.jpg" alt="Fav View">
+        <p class="caption">My favorite view in the world.</p>
+    </div>
+
+    <div class="media-wrapper rotate-left reveal">
+        <img src="pondi%20look.jpg" alt="Pondi Look">
+        <p class="caption">I love this look.</p>
+    </div>
+
+    <section class="letter-content reveal">
+        <p>So, here’s to us. Here’s to the 365 days we just finished and the hundreds more waiting for us. Happy New Year, my love.</p>
+    </section>
+
+    <div class="media-wrapper rotate-right reveal">
+        <img src="lying%20down.jpg" alt="Lying Down">
         <p class="caption">Always better together.</p>
+    </div>
+
+    <div class="media-wrapper rotate-left reveal">
+        <img src="Selfie%20with%20head%20on%20shoulder.jpg" alt="Selfie">
+        <p class="caption">Every moment is a gift.</p>
     </div>
 
     <footer class="reveal">
@@ -243,57 +187,33 @@
 </div>
 
 <script>
-    // 1. Scroll Reveal Logic
     function reveal() {
         var reveals = document.querySelectorAll(".reveal");
         for (var i = 0; i < reveals.length; i++) {
             var windowHeight = window.innerHeight;
             var elementTop = reveals[i].getBoundingClientRect().top;
-            var elementVisible = 100;
-            if (elementTop < windowHeight - elementVisible) {
+            if (elementTop < windowHeight - 100) {
                 reveals[i].classList.add("active");
             }
         }
     }
     window.addEventListener("scroll", reveal);
-    reveal(); // Initial call
+    reveal();
 
-    // 2. Floating Background Elements Logic
     const container = document.getElementById('background-container');
     const icons = ['🌸', '❤️', '✨', '💖', '🍃', '🌹'];
-
     function createFloatingElement() {
         const el = document.createElement('div');
         el.classList.add('floating-element');
-        
-        // Pick a random icon
         el.innerText = icons[Math.floor(Math.random() * icons.length)];
-        
-        // Randomize position and animation properties
-        const startLeft = Math.random() * 100; // 0 to 100vw
-        const duration = Math.random() * 10 + 10; // 10s to 20s
-        const size = Math.random() * 20 + 15; // 15px to 35px
-        
-        el.style.left = startLeft + '%';
+        el.style.left = Math.random() * 100 + '%';
+        const duration = Math.random() * 10 + 10;
         el.style.animationDuration = duration + 's';
-        el.style.fontSize = size + 'px';
-        
+        el.style.fontSize = Math.random() * 20 + 15 + 'px';
         container.appendChild(el);
-
-        // Remove element after animation ends to prevent memory leaks
-        setTimeout(() => {
-            el.remove();
-        }, duration * 1000);
+        setTimeout(() => { el.remove(); }, duration * 1000);
     }
-
-    // Spawn a new element every 600ms
     setInterval(createFloatingElement, 600);
-
-    // Create a few immediately so the screen isn't empty on load
-    for(let i=0; i<15; i++) {
-        setTimeout(createFloatingElement, i * 200);
-    }
 </script>
-
 </body>
 </html>
