@@ -118,28 +118,21 @@
 </head>
 <body>
 
-    <center>
-        <p>Play karo ji 🎶</p>
+<center>
+    <p>Play karo ji 🎵</p>
 
-        <button onclick="playSong()">▶ Play</button>
-        <button onclick="pauseSong()">⏸ Pause</button>
+    <!-- Native audio controls (IMPORTANT) -->
+    <audio id="song" controls preload="auto">
+        <source src="khogaye.mp3" type="audio/mpeg">
+        Your browser does not support audio.
+    </audio>
 
-        <br><br>
+    <br><br>
 
-        <audio id="song">
-            <source src="khogaye.mp3" type="audio/mpeg">
-        </audio>
-    </center>
-
-    <script>
-        function playSong() {
-            document.getElementById("song").play();
-        }
-
-        function pauseSong() {
-            document.getElementById("song").pause();
-        }
-    </script>
+    <!-- Extra buttons -->
+    <button onclick="document.getElementById('song').play()">▶ Play</button>
+    <button onclick="document.getElementById('song').pause()">⏸ Pause</button>
+</center>
 
 <div id="background-container"></div>
 
